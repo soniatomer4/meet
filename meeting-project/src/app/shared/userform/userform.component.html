@@ -1,0 +1,132 @@
+<h2 mat-dialog-title>{{ update === true ? "Update user" : "Create User" }}</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="form">
+    <form [formGroup]="userform">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput placeholder="name" required />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="userform.controls['name'].touched"
+          >Name is required</mat-error
+        >
+        <mat-error *ngIf="userform.controls['name'].invalid"
+          >Name length should not exceed 20</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input formControlName="age" matInput placeholder="age" required />
+        <mat-icon matSuffix>date_range</mat-icon>
+        <mat-error *ngIf="userform.controls['age'].touched"
+          >Age is required</mat-error
+        >
+        <mat-error *ngIf="userform.controls['age'].invalid"
+          >Age should not exceed 100</mat-error
+        >
+      </mat-form-field>
+
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <input matInput placeholder="gender" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Gender</mat-hint>
+      </mat-form-field> -->
+
+      <div class="gender-field">
+        <label>Gender: </label>
+        <mat-radio-group formControlName="gender">
+          <mat-radio-button value="Male">Male</mat-radio-button>
+          <mat-radio-button value="Female">Female</mat-radio-button>
+          <mat-radio-button value="other">Others</mat-radio-button>
+          <mat-error
+            *ngIf="
+              userform.controls['gender'].invalid &&
+              userform.controls['gender'].touched
+            "
+            >Gender is required</mat-error
+          >
+        </mat-radio-group>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>UserName</mat-label>
+        <input
+          formControlName="username"
+          matInput
+          placeholder="username"
+          required
+        />
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-error *ngIf="userform.controls['username'].touched"
+          >UserName is required</mat-error
+        >
+        <mat-error *ngIf="userform.controls['username'].invalid"
+          >length should be greater thsn 5 and less than 25 and combination of
+          uppercase and lowercase characters and digits (0-9)</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          placeholder="password"
+          required
+        />
+        <mat-icon matSuffix>https</mat-icon>
+        <mat-error *ngIf="userform.controls['password'].touched"
+          >Password is required</mat-error
+        ><mat-error *ngIf="userform.controls['password'].invalid"
+          >Password should minimum length should be 6 and combination of
+          lowercase, uppercase and digits</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="email" required />
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-error *ngIf="userform.controls['email'].touched"
+          >Email is required</mat-error
+        >
+        <mat-error *ngIf="userform.controls['email'].invalid"
+          >email with comibanation of characters and digits,followed by the @,
+          and a domain name that consist of letters, digits, periods, and
+          hyphens.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Role</mat-label>
+
+        <mat-select formControlName="role">
+          <mat-option value="ROLE_ADMIN">Admin</mat-option>
+          <mat-option value="ROLE_USER">User</mat-option>
+        </mat-select>
+
+        <mat-error
+          *ngIf="
+            userform.controls['role'].invalid &&
+            userform.controls['role'].touched
+          "
+          >Role is required</mat-error
+        >
+      </mat-form-field>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="create()"
+    [disabled]="userform.invalid"
+  >
+    Add
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,100 @@
+@import "../../styles/abstarct/variables";
+@import "../../styles/abstarct/mixins";
+.row {
+  height: 100%;
+  max-width: 100%;
+  .col-1 {
+    background-position: center;
+    background-size: 100% 100%;
+    text-align: center;
+
+    background-repeat: no-repeat !important;
+    background-image: url("../../assets/images/bg-signin.png");
+  }
+  .col-2 {
+    .logo {
+      display: flex;
+      align-items: center;
+      margin: 2rem 0 0 6rem;
+
+      img {
+        height: 5rem;
+        width: 20rem;
+      }
+      h1 {
+        font-size: 32px;
+        color: #3f51b5;
+      }
+      &__icon {
+        color: #3f51b5;
+        height: 80px !important;
+        width: 80px !important;
+        font-size: 60px !important;
+      }
+    }
+    .form-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 5rem 2rem;
+      @include respond(tab) {
+        margin: 3rem 0 0 1rem;
+      }
+      .form-header {
+        display: flex;
+        align-items: flex-start;
+        color: #3f51b5;
+        mat-icon {
+          font-size: 32px;
+          height: 36px;
+          width: 36px;
+        }
+        h1 {
+          font-size: 32px;
+        }
+      }
+    }
+    :host {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .example-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .example-right-align {
+      text-align: right;
+    }
+
+    input.example-right-align::-webkit-outer-spin-button,
+    input.example-right-align::-webkit-inner-spin-button {
+      display: none;
+    }
+
+    input.example-right-align {
+      -moz-appearance: textfield;
+    }
+    .hide-btn {
+      border: none;
+      background: none;
+    }
+
+    .signin-btn {
+      width: 100%;
+      height: 45px;
+      font-size: 16px;
+    }
+    .forget-link {
+      margin-top: 0.5rem;
+      text-align: end;
+      a {
+        text-decoration: none;
+        color: $color-link;
+      }
+    }
+  }
+}

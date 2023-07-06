@@ -1,0 +1,104 @@
+<mat-card>
+  <div class="table-header">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter</mat-label>
+      <mat-icon class="search-icon">search</mat-icon>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. ia"
+        #input
+      />
+    </mat-form-field>
+
+    <!-- create user button -->
+    <button mat-raised-button color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>Create User
+    </button>
+  </div>
+
+  <!-- table -->
+  <mat-table
+    *ngIf="user && user.length"
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+  >
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let user">
+        {{ user.name }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- age Column -->
+    <ng-container matColumnDef="age">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>Age</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let user">{{ user.age }}</mat-cell>
+    </ng-container>
+    <!-- gender Column -->
+    <ng-container matColumnDef="gender">
+      <mat-header-cell mat-header-cell *matHeaderCellDef
+        >Gender</mat-header-cell
+      >
+      <mat-cell mat-cell *matCellDef="let user">
+        {{ user.gender }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let user">
+        {{ user.email }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell mat-header-cell *matHeaderCellDef
+        >Action</mat-header-cell
+      >
+      <mat-cell
+        class="action-btn"
+        mat-cell
+        *matCellDef="let element; index as i"
+      >
+        <!-- Add your action buttons here -->
+        <button mat-icon-button color="primary" (click)="editUser(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="warn"
+          (click)="openDialogConfirm(element.username)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Row shown when there is no matching data. -->
+
+    <p *ngIf="!user || user.length === 0">No user data available.</p>
+
+    <mat-row
+      mat-header-row
+      *matHeaderRowDef="['name', 'age', 'gender', 'email', 'actions']"
+    ></mat-row>
+    <mat-row
+      mat-row
+      *matRowDef="
+        let row;
+        columns: ['name', 'age', 'gender', 'email', 'actions']
+      "
+    ></mat-row>
+  </mat-table>
+  <mat-paginator
+    #paginator
+    [length]="100"
+    [pageSizeOptions]="[5, 10, 15]"
+    aria-label="select page"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+</mat-card>

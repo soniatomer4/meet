@@ -1,0 +1,14 @@
+.example-card {
+  max-width: 800px;
+}
+
+.example-header-image {
+  background-image: url("../../assets/images/avatar-removebg-preview.png");
+  background-size: cover;
+}
+mat-card-title {
+  font-size: 16px !important;
+}
+mat-card-subtitle {
+  font-size: 14px !important;
+}

@@ -1,0 +1,42 @@
+<mat-card class="row-1">
+  <mat-toolbar>
+    <div class="buttons">
+      <button
+        (click)="toggleSidenav()"
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="example-spacer"></span>
+    </div>
+    <div class="left-btns">
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon notification-icon"
+        aria-label="Example icon-button with heart icon"
+        (click)="openDialogNotification()"
+      >
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <div class="notification-count">
+        <p>{{ count }}</p>
+      </div>
+      <div mat-icon-button class="profile" (click)="openDialogProfile()">
+        <img src="../../assets/images/download.png" alt="avatar" />
+      </div>
+      <button
+        mat-raised-button
+        mat-dialog-close
+        color="primary"
+        (click)="logout()"
+        class="logout-btn"
+      >
+        LogOut
+      </button>
+    </div>
+    <!-- </div> -->
+  </mat-toolbar>
+</mat-card>

@@ -1,0 +1,19 @@
+.form {
+  margin-top: 1rem;
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    mat-form-field {
+      width: 34%;
+    }
+    .gender-field {
+      width: 70%;
+    }
+  }
+}
+mat-mdc-form-field-subscript-wrapper {
+  display: none !important;
+}

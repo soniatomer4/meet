@@ -1,0 +1,86 @@
+<div class="r">
+  <div class="banner">
+    <mat-card class="row">
+      <div class="col-sm-6 content">
+        <p>Welcome Back John..</p>
+        <span>Here is all you need, schedule meetings in just few steps. </span>
+      </div>
+      <div class="col-sm-6 image">
+        <img src="../../assets/images/banner.png" alt="bannerImage" />
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div class="r">
+  <div class="col-sm-3">
+    <mat-card class="card c1">
+      <mat-icon class="i-1">supervisor_account</mat-icon>
+      <p>{{ totalUser }}</p>
+      <span>Total Users</span>
+    </mat-card>
+  </div>
+  <div class="col-sm-3">
+    <mat-card class="card c2">
+      <mat-icon class="i-2">person</mat-icon>
+      <p>{{ activeUser }}</p>
+      <span>Active Users</span></mat-card
+    >
+  </div>
+  <div class="col-sm-3">
+    <mat-card class="card c3">
+      <mat-icon class="i-3">
+        <span class="material-symbols-outlined"> person_off </span>
+      </mat-icon>
+      <p>{{ totalUser - activeUser }}</p>
+      <span>Inactive Users</span>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row banner-meeting">
+  <mat-card class="row">
+    <div class="col-sm-6 content">
+      <h2>Organize a Meeting</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+        laborum blanditiis modi, ipsum labore totam quos dolorem corporis
+      </p>
+      <div class="btn-meet">
+        <button mat-raised-button color="primary" routerLink="../meeting">
+          Manage Meeting
+        </button>
+      </div>
+    </div>
+    <div class="col-sm-6 bg-img">
+      <img src="../../assets/images/banner-meeting.png" alt="img" />
+    </div>
+  </mat-card>
+</div>
+
+<div class="row row-3">
+  <div class="col-2">
+    <div class="cards">
+      <mat-card class="mc-1">
+        <div class="card-1">
+          <mat-icon class="i-1">laptop</mat-icon>
+          <p>{{ totalMeeting }}</p>
+          <span>Total Meetings</span>
+        </div>
+      </mat-card>
+      <mat-card class="mc-2">
+        <div class="card-1">
+          <mat-icon class="i-2">laptop</mat-icon>
+          <p>{{ todayMeeting }}</p>
+          <span>Today Meetings</span>
+        </div>
+      </mat-card>
+      <mat-card class="mc-3"
+        ><div class="card-1">
+          <mat-icon class="i-3">laptop</mat-icon>
+          <p>{{ futureMeeting }}</p>
+          <span>Future Meetings</span>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

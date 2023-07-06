@@ -1,0 +1,30 @@
+<div class="sidenav">
+  <div class="nav-header">
+    <div class="logo">
+      <img src="../../assets/images/logo.png" alt="logo" />
+    </div>
+  </div>
+  <div class="nav-menu">
+    <ul class="nav-menu__list">
+      <li>
+        <a routerLink="dashboard" class="list-item">
+          <mat-icon>home</mat-icon>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <!-- <li *ngIf="Role === 'ROLE_ADMIN'"> -->
+      <li>
+        <a class="list-item" routerLink="user">
+          <mat-icon>supervised_user_circle</mat-icon>
+          <span>User Manage</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="meeting" class="list-item">
+          <mat-icon>personal_video</mat-icon>
+          <span>Meeting Manage </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

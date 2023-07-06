@@ -1,0 +1,84 @@
+<div class="edit-box">
+  <form [formGroup]="userEditform">
+    <mat-form-field appearance="outline">
+      <mat-label for="name">Name</mat-label>
+      <input formControlName="name" required matInput placeholder="name" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error
+        *ngIf="
+          userEditform.controls['name'].invalid &&
+          userEditform.controls['name'].touched
+        "
+        >username is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="age">Age</mat-label>
+      <input formControlName="age" required matInput placeholder="age" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error
+        *ngIf="
+          userEditform.controls['age'].invalid &&
+          userEditform.controls['age'].touched
+        "
+        >Age is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="gender">
+      <mat-label for="gender">Gender</mat-label>
+      <mat-select
+        formControlName="gender"
+        required
+        placeholder="gender"
+        [(ngModel)]="selectedValue"
+        name="gender"
+        [(value)]="selected"
+      >
+        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+          {{ gender.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error
+        *ngIf="
+          userEditform.controls['gender'].invalid &&
+          userEditform.controls['gender'].touched
+        "
+        >Gender is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="email">EmailId</mat-label>
+      <input formControlName="email" required matInput placeholder="email" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error
+        *ngIf="
+          userEditform.controls['email'].invalid &&
+          userEditform.controls['email'].touched
+        "
+        >Emailid is required</mat-error
+      >
+    </mat-form-field>
+    <div class="btns">
+      <button
+        type="submit"
+        [disabled]="userEditform.invalid"
+        mat-dialog-close
+        (click)="submit()"
+        mat-raised-button
+        color="primary"
+      >
+        Add
+      </button>
+      <button
+        style="margin-left: 1rem"
+        mat-dialog-close
+        mat-raised-button
+        color="warn"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

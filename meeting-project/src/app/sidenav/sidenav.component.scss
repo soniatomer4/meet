@@ -1,0 +1,43 @@
+@import "../../styles/abstarct/variables";
+@import "../../styles/abstarct/mixins";
+
+.nav-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 1rem;
+  .logo {
+    img {
+      height: 3.5rem;
+      max-width: 100%;
+    }
+  }
+}
+.nav-menu {
+  margin-top: 1rem;
+  &__list {
+    list-style: none;
+    padding: 0;
+
+    // margin: 0.5rem;
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: $white;
+      font-size: 16px;
+      height: 3rem;
+      padding-left: 0.5rem;
+      &:hover {
+        border-radius: 5px;
+        background-color: #dbdbdb;
+        color: #3f51b5;
+      }
+    }
+  }
+}
+.user-class {
+  visibility: hidden;
+}

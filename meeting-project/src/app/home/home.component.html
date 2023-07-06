@@ -1,0 +1,21 @@
+<mat-sidenav-container class="app-drawer-container row">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    class="col-1"
+    [(opened)]="opened"
+    [opened]="sidenavOpened"
+  >
+    <div class="sidenav">
+      <app-sidenav></app-sidenav>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="col-2 content-wrapper">
+    <div class="header">
+      <app-header></app-header>
+    </div>
+    <div class="row-2 content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

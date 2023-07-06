@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-sm-7 col-1"></div>
+  <div class="col-sm-5 col-2">
+    <div class="logo"></div>
+    <div class="form-section">
+      <div class="form-header">
+        <h1>Sign In</h1>
+      </div>
+
+      <form [formGroup]="loginform">
+        <div class="example-container">
+          <mat-form-field appearance="outline">
+            <mat-label for="username">Username</mat-label>
+            <input
+              formControlName="username"
+              required
+              matInput
+              placeholder="username"
+            />
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error
+              *ngIf="
+                loginform.controls['username'].touched &&
+                loginform.controls['username'].invalid
+              "
+              >UserName is required</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              formControlName="password"
+              required
+              matInput
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button
+              class="hide-btn"
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-error
+              *ngIf="
+                loginform.controls['password'].touched &&
+                loginform.controls['password'].invalid
+              "
+              >Password is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <button
+            type="submit"
+            [disabled]="loginform.invalid"
+            class="signin-btn"
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/home']"
+            (click)="onsubmit()"
+          >
+            Sign in
+          </button>
+        </div>
+        <div class="forget-link">
+          <a routerLink="../resetpwd">Forget Password ?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
